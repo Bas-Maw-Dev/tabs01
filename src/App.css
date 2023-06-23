@@ -52,8 +52,11 @@ ul.nav li {
   border-top-left-radius: 2rem;
 }
 
-ul.nav li:nth-child(2) {
-  border-radius: 0;
+ul.nav li:first-child {
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
+}
+ul.nav li:last-child {
   border-bottom-right-radius: 2rem;
   border-top-right-radius: 2rem;
 }

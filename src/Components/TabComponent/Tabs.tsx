@@ -1,37 +1,29 @@
 import React, { useState } from "react";
-import FirstTab from "../AllTabs/FirstTab";
-import SecondTab from "../AllTabs/SecondTab";
+import TabNavItem from "../V2/TabNavItem";
+import TabContent from "../V2/TabContent";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("tab1");
 
-  // Functions to handle the tab switching:
-  const handleTab1 = () => {
-    setActiveTab("tab1");
-  };
-  const handleTab2 = () => {
-    setActiveTab("tab2");
-  };
-  
   return (
     <>
     <div className="Tabs">
       <ul className="nav">
-        <li 
-        className={activeTab === "tab1" ? "active" : ""}
-        onClick={handleTab1}
-        >
-          Tab 1
-        </li>
-        <li 
-        className={activeTab === "tab2" ? "active" : ""}
-        onClick={handleTab2}
-        >
-          Tab 2
-        </li>
+        <TabNavItem title="Tab 1" id="tab1" activeTab={activeTab} setActiveTab={setActiveTab} />
+        <TabNavItem title="Tab 2" id="tab2" activeTab={activeTab} setActiveTab={setActiveTab} />
+        <TabNavItem title="Tab 3" id="tab3" activeTab={activeTab} setActiveTab={setActiveTab} />
       </ul>
+
       <div className="outlet">
-        {activeTab === "tab1" ? <FirstTab /> : <SecondTab />}
+        <TabContent id="tab1" activeTab={activeTab}>
+          <p>Tab 1 content</p>
+        </TabContent>
+        <TabContent id="tab1" activeTab={activeTab}>
+          <p>Tab 2 content</p>
+        </TabContent>
+        <TabContent id="tab1" activeTab={activeTab}>
+          <p>Tab 3 content</p>
+        </TabContent>
       </div>
     </div>
     </>
